@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxoV.MainMenuController">
+   <children>
+      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" style="-fx-padding: 0 1 0 1; -fx-box-border: transparent;" VBox.vgrow="ALWAYS">
+         <items>
+            <Pane prefHeight="393.0" prefWidth="309.0" style="-fx-background-color: #0077BE;">
+               <children>
+                  <Text fill="WHITE" layoutX="31.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOXSPELL" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#newSpellingQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B8860B;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="button" fill="WHITE" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW SPELLING QUIZ" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#reviewQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #933D41;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REVIEW QUIZ" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="209.0" onMouseClicked="#viewStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #317873;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" layoutX="31.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIEW STATISTICS" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="276.0" onMouseClicked="#clearStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B768A2;" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text fill="WHITE" layoutX="31.0" layoutY="57.0" onMouseClicked="#clearStatisticsClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="CLEAR STATISTICS" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>
