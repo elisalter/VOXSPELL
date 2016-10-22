@@ -17,9 +17,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * A javaFX controller class for the ClearStatisticsScene.fxml
+ * A javaFX controller class for the ClearStatisticsSceneController.fxml
  */
-public class ClearStatisticsScene implements Initializable{
+public class ClearStatisticsSceneController implements Initializable{
 
     // Stores a referenence to the singleton DataBase and RevisionQuiz objects
     DataBase _db = DataBase.getInstance();
@@ -44,7 +44,7 @@ public class ClearStatisticsScene implements Initializable{
 
 
     /**
-     * called on startup of the ClearStatisticsScene.fxml, accessed via the main menu.
+     * called on startup of the ClearStatisticsSceneController.fxml, accessed via the main menu.
      * @param location
      * @param resources
      */
