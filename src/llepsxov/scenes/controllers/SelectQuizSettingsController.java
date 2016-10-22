@@ -79,13 +79,14 @@ public class SelectQuizSettingsController implements Initializable {
     @FXML
     public void level1Pressed(ActionEvent event) {
         Level.setLevel(1);
+        highlightButton(level1);
         _levelUnlocked = 1;
         continueButton.setDisable(false);
     }
 
     @FXML
     public void level2Pressed() {
-
+        highlightButton(level2);
         Level.setLevel(2);
         _levelUnlocked = 2;
         continueButton.setDisable(false);
@@ -93,7 +94,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level3Pressed() {
-
+        highlightButton(level3);
         Level.setLevel(3);
         _levelUnlocked = 3;
         continueButton.setDisable(false);
@@ -101,7 +102,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level4Pressed() {
-
+        highlightButton(level4);
         Level.setLevel(4);
         _levelUnlocked = 4;
         continueButton.setDisable(false);
@@ -109,6 +110,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level5Pressed() {
+        highlightButton(level5);
         Level.setLevel(5);
         _levelUnlocked = 5;
         continueButton.setDisable(false);
@@ -116,6 +118,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level6Pressed() {
+        highlightButton(level6);
         Level.setLevel(6);
         _levelUnlocked = 6;
         continueButton.setDisable(false);
@@ -123,6 +126,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level7Pressed() {
+        highlightButton(level7);
         Level.setLevel(7);
         _levelUnlocked = 7;
         continueButton.setDisable(false);
@@ -130,6 +134,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level8Pressed() {
+        highlightButton(level8);
         Level.setLevel(8);
         _levelUnlocked = 8;
         continueButton.setDisable(false);
@@ -137,6 +142,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level9Pressed() {
+        highlightButton(level9);
         Level.setLevel(9);
         _levelUnlocked = 9;
         continueButton.setDisable(false);
@@ -144,6 +150,7 @@ public class SelectQuizSettingsController implements Initializable {
 
     @FXML
     public void level10Pressed() {
+        highlightButton(level10);
         Level.setLevel(10);
         _levelUnlocked = 10;
         continueButton.setDisable(false);
@@ -205,5 +212,22 @@ public class SelectQuizSettingsController implements Initializable {
             }
         }
 
+    }
+
+    public void highlightButton(ToggleButton pressedBtn){
+
+        for(ToggleButton b : myButtons){
+
+            if (!b.equals(pressedBtn)){
+
+                b.setOpacity(0.50);
+
+            } else {
+
+                b.setOpacity(1.00);
+
+            }
+
+        }
     }
 }

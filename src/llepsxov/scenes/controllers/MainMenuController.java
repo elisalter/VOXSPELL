@@ -63,7 +63,7 @@ public class MainMenuController implements Initializable {
     }
 
     /**
-     * controls the logic for the clear statistics pane in the main menu, taking the user to a new scene ClearStatisticsScene.fxml
+     * controls the logic for the clear statistics pane in the main menu, taking the user to a new scene ClearStatisticsSceneController.fxml
      * @throws IOException
      */
     public void clearStatisticsClicked() throws IOException {
