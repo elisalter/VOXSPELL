@@ -81,7 +81,7 @@
                                                 <Insets />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="Button10" mnemonicParsing="false" onMouseClicked="#level10Pressed" prefHeight="18.0" prefWidth="174.0" style="-fx-background-color: #ADD8E6;" text="LEVEL10" textFill="#0077be" GridPane.rowIndex="9">
+                                        <Button fx:id="Button10" mnemonicParsing="false" onMouseClicked="#level10Pressed" prefHeight="18.0" prefWidth="174.0" style="-fx-background-color: #ADD8E6;" text="LEVEL 10" textFill="#0077be" GridPane.rowIndex="9">
                                             <GridPane.margin>
                                                 <Insets bottom="20.0" />
                                             </GridPane.margin>

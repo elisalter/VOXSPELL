@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import llepsxov.application.*;
@@ -46,8 +47,13 @@ public class SpellingQuizController implements Initializable {
     @FXML
     private Button _submitButton;
 
+    @FXML
+    private ProgressBar bar;
+
 
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
+
+
 
 
 

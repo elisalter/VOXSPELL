@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -64,6 +65,11 @@
                      </HBox.margin></ComboBox>
                </children>
             </HBox>
+            <ProgressBar fx:id="bar" prefHeight="20.0" prefWidth="607.0" progress="0.61" stylesheets="@../../../Resources/striped-progress.css">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ProgressBar>
             <Label />
             <Text fx:id="_testAccuracyText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="TEST ACCURACY: 75%" textAlignment="CENTER">
                <font>
@@ -78,7 +84,7 @@
                   <Font size="17.0" />
                </font>
                <VBox.margin>
-                  <Insets left="195.0" top="10.0" />
+                  <Insets bottom="10.0" left="195.0" top="10.0" />
                </VBox.margin>
             </Text>
          </children>
