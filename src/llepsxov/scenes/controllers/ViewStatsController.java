@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import llepsxov.application.DisplayingStats;
 import llepsxov.application.Voxspell;
@@ -55,6 +56,8 @@ public class ViewStatsController implements Initializable {
     @FXML
     Button Button10;
 
+
+
     ArrayList<Button> levelButtons = new ArrayList<Button>();
 
     DisplayingStats _statistics = new DisplayingStats();
@@ -63,8 +66,10 @@ public class ViewStatsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
         addButtons();
-        statsDisplay.setText(_statistics.printStatistics(1));
+        statsDisplay.setText("Select A level");
+        for(Button b : levelButtons){b.setOpacity(0.5);}
 
     }
 
@@ -74,6 +79,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level1Pressed(){
+        buttonClicked(Button1);
         String outputText = _statistics.printStatistics(1);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 1");
@@ -84,6 +90,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level2Pressed(){
+        buttonClicked(Button2);
         String outputText = _statistics.printStatistics(2);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 2");
@@ -94,6 +101,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level3Pressed(){
+        buttonClicked(Button3);
         String outputText = _statistics.printStatistics(3);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 3");
@@ -104,6 +112,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level4Pressed(){
+        buttonClicked(Button4);
         String outputText = _statistics.printStatistics(4);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 4");
@@ -114,6 +123,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level5Pressed(){
+        buttonClicked(Button5);
         String outputText = _statistics.printStatistics(5);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 5");
@@ -124,6 +134,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level6Pressed(){
+        buttonClicked(Button6);
         String outputText = _statistics.printStatistics(6);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 6");
@@ -134,6 +145,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level7Pressed(){
+        buttonClicked(Button7);
         String outputText = _statistics.printStatistics(7);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 7");
@@ -144,6 +156,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level8Pressed(){
+        buttonClicked(Button8);
         String outputText = _statistics.printStatistics(8);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 8");
@@ -154,6 +167,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level9Pressed(){
+        buttonClicked(Button9);
         String outputText = _statistics.printStatistics(9);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 9");
@@ -164,6 +178,7 @@ public class ViewStatsController implements Initializable {
 
     @FXML
     public void level10Pressed(){
+        buttonClicked(Button10);
         String outputText = _statistics.printStatistics(10);
         if(outputText.equals("")){
             statsDisplay.setText("No stats to display for level 10");
@@ -180,5 +195,15 @@ public class ViewStatsController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/MainMenuScene.fxml"));
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
+    }
+
+    public void buttonClicked(Button btnClicked){
+        for(Button b : levelButtons){
+            if(b.equals(btnClicked)){
+                b.setOpacity(1.0);
+            } else {
+                b.setOpacity(0.5);
+            }
+        }
     }
 }

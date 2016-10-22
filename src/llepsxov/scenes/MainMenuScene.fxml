@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.MainMenuController">
+<VBox alignment="CENTER" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.MainMenuController">
    <children>
-      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" style="-fx-padding: 0 1 0 1; -fx-box-border: transparent;" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.495" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" style="-fx-padding: 0 1 0 1; -fx-box-border: transparent;" VBox.vgrow="ALWAYS">
          <items>
             <Pane prefHeight="393.0" prefWidth="309.0" style="-fx-background-color: #0077BE;">
                <children>
-                  <Text fill="WHITE" layoutX="31.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOXSPELL" textAlignment="CENTER" wrappingWidth="233.82177734375">
+                  <Circle fill="#ff1fa2" layoutX="414.0" layoutY="188.0" opacity="0.26" radius="277.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-stroke: #1a5276;" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOXSPELL" textAlignment="CENTER" wrappingWidth="280.82177734375">
                      <font>
                         <Font size="42.0" />
                      </font>
                   </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2a69a4" height="283.0" layoutX="295.0" layoutY="42.0" stroke="WHITE" strokeLineCap="BUTT" strokeLineJoin="BEVEL" width="242.0" />
+                  <Text fill="WHITE" layoutX="355.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VERSION 1.0.1" underline="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="304.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME TO VOXSPELL, VOXSPELL IS A SPELLING APPLICATION DESIGNED TO IMPROVE YOUR SPELLING!" textAlignment="JUSTIFY" wrappingWidth="227.82177387550473">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Text>
+                  <Text layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FOR INFORMATION ON VOXSPELL CLICK BELOW TO OPEN THE README FILE." textAlignment="JUSTIFY" wrappingWidth="227.82176937907934">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Text>
+                  <Button layoutX="345.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#readMeButtonPressed" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #ac18af; -fx-border-width: 0;" text="OPEN README" />
+                  <Text layoutX="303.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURRENTLY VOXSPELL SUPPORTS A POINT SYSTEM WITH HIGHSCORES AND STREAKS, ADDING YOUR OWN CUSTOM WORD LIST! MULTIPLE VIDEO REWARDS, A REVIEW MODE, STATISTICS AND MORE!" textAlignment="JUSTIFY" wrappingWidth="227.82176937907934">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Text>
+                  <Text fill="WHITE" layoutX="303.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GITHUB REPOSITORY:" underline="true" />
+                  <Text fill="WHITE" layoutX="303.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://github.com/elisalter/Voxspell.git" wrappingWidth="227.82177734375" />
+                  <Text fx:id="errorReadingFile" fill="#d01919" layoutX="341.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR READING FILE!" />
                </children>
             </Pane>
             <VBox prefHeight="200.0" prefWidth="100.0">

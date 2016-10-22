@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,6 +21,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.SelectQuizSettingsController">
    <children>
+      <Circle fill="DODGERBLUE" layoutX="300.0" layoutY="187.0" opacity="0.23" radius="317.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Text fill="#0077be" layoutX="104.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOXSPELL: SETTINGS SELECT">
          <font>
             <Font name="Loma" size="25.0" />
@@ -146,5 +149,10 @@
             <Font name="Loma" size="14.0" />
          </font></Button>
       <ComboBox fx:id="voiceChoiceBox" layoutX="209.0" layoutY="174.0" onAction="#voiceChanging" prefHeight="25.0" prefWidth="194.0" />
+      <Text fx:id="levelSelectWarning" fill="#0078bd" layoutX="235.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #933D41;" text="SELECT A LEVEL" underline="true">
+         <font>
+            <Font name="Loma" size="14.0" />
+         </font>
+      </Text>
    </children>
 </Pane>
