@@ -68,7 +68,7 @@ public class Festival {
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write("(" + _currentVoice + ")");
             bw.newLine();
-            bw.write("(Parameter.set 'Duration_Stretch 1.2)");
+            bw.write("(Parameter.set 'Duration_Stretch 1.3)");
             bw.newLine();
             bw.write("(" + "SayText \""+ sayThis + "\")");
             bw.close();

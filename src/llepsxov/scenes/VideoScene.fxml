@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
@@ -30,6 +31,9 @@
                <font>
                   <Font name="Loma" size="13.0" />
                </font></Button>
+            <Line endX="591.0" layoutY="25.0" opacity="0.5" startX="9.0" stroke="#9c3fa1" />
+            <Line endX="580.0" layoutY="35.0" opacity="0.5" startX="20.0" stroke="#9c3fa1" />
+            <Line endX="597.0" layoutY="15.0" opacity="0.5" startX="3.0" stroke="#9c3fa1" />
          </children>
       </Pane>
    </bottom>
