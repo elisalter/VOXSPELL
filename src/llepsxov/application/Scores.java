@@ -98,4 +98,11 @@ public class Scores implements Serializable{
 
         }
     }
+
+    public void clearScores(){
+        _streak = 0;
+        _score = 0;
+        _highScore=0;
+        _highStreak=0;
+    }
 }

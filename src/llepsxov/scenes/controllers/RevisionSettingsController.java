@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import llepsxov.application.*;
@@ -67,6 +68,12 @@ public class RevisionSettingsController implements Initializable {
     ToggleButton level10;
 
     @FXML
+    Label pleaseSelectALevel;
+
+    @FXML
+    Label noLevelsToReview;
+
+    @FXML
     private ComboBox selectVoice;
 
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
@@ -75,54 +82,64 @@ public class RevisionSettingsController implements Initializable {
     public void level1Pressed(ActionEvent event) {
 
         Level.setLevel(1);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level2Pressed() {
 
         Level.setLevel(2);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level3Pressed() {
 
         Level.setLevel(3);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level4Pressed() {
 
         Level.setLevel(4);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level5Pressed() {
         Level.setLevel(5);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level6Pressed() {
         Level.setLevel(6);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level7Pressed() {
         Level.setLevel(7);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level8Pressed() {
         Level.setLevel(8);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level9Pressed() {
         Level.setLevel(9);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
     public void level10Pressed() {
         Level.setLevel(10);
+        pleaseSelectALevel.setVisible(false);
     }
 
     @FXML
@@ -159,6 +176,8 @@ public class RevisionSettingsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addButtons();
 
+        noLevelsToReview.setVisible(true);
+        pleaseSelectALevel.setVisible(false);
         selectVoice.setValue(Festival.voice());
         selectVoice.setItems(voiceList);
 
@@ -172,6 +191,8 @@ public class RevisionSettingsController implements Initializable {
             if (!_revisionQUiz.checkAnyWords(i + 1)) {
                     myButtons.get(i).setDisable(true);
             } else {
+                noLevelsToReview.setVisible(false);
+                pleaseSelectALevel.setVisible(true);
                 continueButton.setDisable(false);
             }
         }

@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.LevelFailedController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #71baff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.LevelFailedController">
    <children>
-      <Button layoutX="252.0" layoutY="263.0" mnemonicParsing="false" onAction="#returnToMainMenu" text="MAIN MENU" textAlignment="CENTER" />
-      <Button layoutX="270.0" layoutY="216.0" mnemonicParsing="false" onAction="#retryLevel" text="RETRY" textAlignment="CENTER" />
-      <Text layoutX="278.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SORRY" textAlignment="CENTER">
+      <Button layoutX="249.0" layoutY="266.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="32.0" prefWidth="103.0" style="-fx-background-color: #a0ff71;" text="MAIN MENU" textAlignment="CENTER" />
+      <Button layoutX="270.0" layoutY="214.0" mnemonicParsing="false" onAction="#retryLevel" style="-fx-background-color: #fbff71;" text="RETRY" textAlignment="CENTER">
+         <font>
+            <Font name="Loma" size="13.0" />
+         </font></Button>
+      <Text layoutX="266.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SORRY" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Loma" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="198.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL NOT PASSED" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Loma" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="68.0" fitWidth="79.0" layoutX="523.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" rotate="16.7">
+         <image>
+            <Image url="@resources/sad-logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="68.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TO PASS AND UNLOCK THE NEXT LEVEL YOU MUST ACHIEVE A TEST ACCURACY SCORE OF AT LEAST 80%" textAlignment="CENTER" wrappingWidth="465.4462890625">
          <font>
             <Font name="Loma" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="233.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL NOT PASSED" textAlignment="CENTER">
-         <font>
-            <Font name="Loma" size="13.0" />
-         </font>
-      </Text>
+      <Button layoutX="246.0" layoutY="321.0" mnemonicParsing="false" onMouseClicked="#statisticsButtonClicked" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #e87fff;" text="STATISTICS" />
    </children>
 </Pane>

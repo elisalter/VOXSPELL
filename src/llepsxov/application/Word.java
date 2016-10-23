@@ -13,7 +13,15 @@ public class Word implements Serializable, Comparable<Word> {
     private int _numFaulted;
     private int _numFailed;
     private int _level;
+    private int numAppeared;
 
+    public int getNumAppeared() {
+        return _numMastered + _numFaulted + _numFailed;
+    }
+
+    public void setNumAppeared(int numAppeared) {
+        this.numAppeared = numAppeared;
+    }
 
     public Word(String word, int level) {
         _word = word;
@@ -66,6 +74,13 @@ public class Word implements Serializable, Comparable<Word> {
         return _numFailed;
     }
 
+    public String get_word() {
+        return _word;
+    }
+
+    public void set_word(String _word) {
+        this._word = _word;
+    }
 
     @Override
     public boolean equals(Object word){

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -10,6 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.RevisionCompleteController">
    <children>
+      <Circle fill="#20ff1f" layoutX="297.0" layoutY="208.0" opacity="0.21" radius="305.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Pane layoutX="172.0" layoutY="208.0" onMouseClicked="#returnMainMenu" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #0077be;">
          <children>
             <Text fill="WHITE" layoutX="42.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RETURN TO MAIN MENU">
