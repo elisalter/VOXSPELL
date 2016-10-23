@@ -28,6 +28,7 @@
             <Button fx:id="noButton" layoutX="354.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#noPressed" prefHeight="51.0" prefWidth="115.0" style="-fx-background-color: #933D41;" text="NO" />
             <Label fx:id="noLabel" layoutX="132.0" layoutY="147.0" prefHeight="15.0" prefWidth="379.0" style="-fx-text-fill: #933D41;" text="NO STATS DELETED. CLICK TO RETURN TO MAIN MENU. . ." />
             <Label fx:id="yesLabel" layoutX="108.0" layoutY="147.0" style="-fx-text-fill: #317873;" text="ALL STATS DELETED. CLICK TO RETURN TO MAIN MENU. . ." />
+            <Label fx:id="warningMessage" layoutX="54.0" layoutY="147.0" prefHeight="15.0" prefWidth="494.0" text="THIS WILL CLEAR ALL HIGHSCORES, ALL HIGHSTREAKS AND ALL HISTORY!" textFill="WHITE" />
          </children></AnchorPane>
   </items>
 </SplitPane>

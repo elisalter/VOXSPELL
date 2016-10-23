@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import llepsxov.application.DataBase;
 import llepsxov.application.RevisionQuiz;
+import llepsxov.application.Scores;
 import llepsxov.application.Voxspell;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class ClearStatisticsSceneController implements Initializable{
     // Stores a referenence to the singleton DataBase and RevisionQuiz objects
     DataBase _db = DataBase.getInstance();
     RevisionQuiz _rv = RevisionQuiz.getInstance();
+    Scores _scores = Scores.getInstance();
 
 
     // FXML GUI component fields
@@ -41,6 +43,9 @@ public class ClearStatisticsSceneController implements Initializable{
 
     @FXML
     Button noButton;
+
+    @FXML
+    Label warningMessage;
 
 
     /**
@@ -63,10 +68,12 @@ public class ClearStatisticsSceneController implements Initializable{
      * clears the statistics when the user presses yes and gives the option to return to the main menu
      */
     public void yesPressed(){
+        warningMessage.setVisible(false);
         yesLabel.setVisible(true);
 
         _db.clearStats();
         _rv.clearFailed();
+        _scores.clearScores();
 
         yesButton.setVisible(false);
         noButton.setVisible(false);
@@ -83,6 +90,7 @@ public class ClearStatisticsSceneController implements Initializable{
      * does not clear any statistics, offerst the option to return to the main menu
      */
     public void noPressed(){
+        warningMessage.setVisible(false);
 
         noLabel.setVisible(true);
 
