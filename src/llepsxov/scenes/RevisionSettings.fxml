@@ -146,5 +146,7 @@
             <Font name="Loma" size="13.0" />
          </font></Button>
         <ComboBox fx:id="selectVoice" layoutX="209.0" layoutY="174.0" onAction="#voiceChanging" prefHeight="25.0" prefWidth="194.0" />
+      <Label fx:id="pleaseSelectALevel" layoutX="229.0" layoutY="235.0" prefHeight="15.0" prefWidth="163.0" text="PLEASE SELECT A LEVEL" textFill="#bf1c1c" underline="true" />
+      <Label fx:id="noLevelsToReview" layoutX="229.0" layoutY="235.0" prefHeight="15.0" prefWidth="163.0" text="NO LEVELS TO REVIEW" textFill="#bf1c1c" underline="true" />
     </children>
 </Pane>
