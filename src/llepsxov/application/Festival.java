@@ -36,7 +36,7 @@ public class Festival {
      * @param sayThis
      */
     public static void callFestival(String sayThis) {
-        String cmd = "festival -b festival.scm";
+        String cmd = "festival -b .festival.scm";
 
         writeSayThis(sayThis);
 
@@ -59,7 +59,7 @@ public class Festival {
 
         try {
 
-            File file = new File("festival.scm");
+            File file = new File(".festival.scm");
 
             deleteFile();
             file.createNewFile();
@@ -83,7 +83,7 @@ public class Festival {
      */
     public static void deleteFile() {
 
-        File file = new File("festival.scm");
+        File file = new File(".festival.scm");
         file.delete();
     }
 

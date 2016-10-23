@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import llepsxov.application.DataBase;
 import llepsxov.application.DesktopApi;
+import llepsxov.application.Scores;
 import llepsxov.application.Voxspell;
 import java.io.File;
 
@@ -26,6 +27,7 @@ public class MainMenuController implements Initializable {
 
     // singleton DataBase object
     private DataBase _dataBase = DataBase.getInstance();
+    private Scores _scores = Scores.getInstance();
 
     @FXML
     private Text errorReadingFile;

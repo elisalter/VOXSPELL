@@ -79,7 +79,6 @@ public class Spelling_Logic {
 
     public void spellingQuiz(String input) {
 
-        // this is only for debug purpose, GUI hasn't been implemented yet
 
         if (_inputFlag == false) {
 
@@ -106,18 +105,6 @@ public class Spelling_Logic {
                     _revisionData.removeFromLevel(_word);
                 }
 
-                /*
-                if (_dataBase.wordSeen(_word)) {
-                    _word = _dataBase.getWordStatsList(_word);
-                    _word.addMastered();
-                } else {
-                    _word.addMastered();
-                    _dataBase.addToWordList(_word);
-                }
-                */
-
-                //_stats.increaseMastered();
-
             } else {
 
                 Festival.callFestival("Incorrect! Please try again. " + _wordList.get(_position));
@@ -139,35 +126,11 @@ public class Spelling_Logic {
                 if (!_isNewQuiz) {
                     _revisionData.removeFromLevel(_word);
                 }
-                /*
-
-                if (_dataBase.wordSeen(_word)) {
-                    _word = _dataBase.getWordStatsList(_word);
-                    _word.addFaulted();
-                } else {
-                    _word.addFaulted();
-                    _dataBase.addToWordList(_word);
-                }
-                */
 
             } else {
                 Festival.callFestival("Incorrect...");
 
-
-
-
                 _revisionData.addToFailed(_word);
-
-                /*
-                if (_dataBase.wordSeen(_word)) {
-                    _word = _dataBase.getWordStatsList(_word);
-                    _word.addFailed();
-                } else {
-                    _word.addFailed();
-                    _dataBase.addToWordList(_word);
-                }
-
-                */
 
 
             }
@@ -284,6 +247,10 @@ public class Spelling_Logic {
             _word.addMastered();
             _dataBase.addToWordList(_word);
         }
+    }
+
+    public int getNumberWords() {
+        return _numWords;
     }
 
 }

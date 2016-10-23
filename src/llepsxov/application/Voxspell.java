@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Voxspell extends Application {
 
     private DataBase _dataBase = DataBase.getInstance();
+    private Scores _scores = Scores.getInstance();
     private static Stage _primaryStage;
 
     private RevisionQuiz _revisionData = RevisionQuiz.getInstance();
@@ -30,6 +31,7 @@ public class Voxspell extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         try {
+            _scores.loadScores(); // loads it all up
             _revisionData.loadFailed();
             _dataBase.loadStats();
         } catch (IOException e) {
@@ -48,7 +50,7 @@ public class Voxspell extends Application {
     }
 
     /**
-     * called when application is closed, saving statistics to database
+     * called when application is closed, saving statistics to database and saving highscores etc
      */
     @Override
     public void stop() {
@@ -57,6 +59,7 @@ public class Voxspell extends Application {
         try {
             _dataBase.saveStats();
             _revisionData.saveFailed();
+            _scores.saveData();
         } catch (IOException e) {
             e.printStackTrace();
         }

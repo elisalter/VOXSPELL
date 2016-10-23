@@ -21,8 +21,8 @@ public class DataBase {
 
     private static DataBase instance = null;
 
-    private File _statsFile = new File("stats.ser");
-    private File _failedFile = new File("failedStats.ser");
+    private File _statsFile = new File(".stats.ser");
+    private File _failedFile = new File(".failedStats.ser");
     private ArrayList<Word> _storedStats;
     private ArrayList<Word> _failedList;
     //private ArrayList<String> _wordList;
@@ -109,7 +109,7 @@ public class DataBase {
         ArrayList<String> levelList = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("NZCER-spelling-lists.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("./src/llepsxov/spelling/NZCER-spelling-lists.txt"));
 
             while ((currentLine = br.readLine()) != null) {
                 if (currentLine.charAt(0) == '%') {
