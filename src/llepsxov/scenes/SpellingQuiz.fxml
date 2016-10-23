@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -17,77 +19,110 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.SpellingQuizController">
-   <top>
-      <Text fx:id="_levelText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL 1" textAlignment="CENTER" BorderPane.alignment="CENTER">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.SpellingQuizController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;">
+         <top>
+            <Text fx:id="_levelText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL 10" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Loma" size="30.0" />
+               </font>
+            </Text>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE ENTER WORD BELOW:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="_inputField" onAction="#submitButtonPressed" onMouseClicked="#textFieldClicked" prefHeight="47.0" prefWidth="580.0" promptText="TYPE WORD HERE">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="71.0" prefWidth="600.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#repeatWordPressed" prefWidth="200.0" style="-fx-background-color: #0077be;" text="REPEAT WORD" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="40.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="_submitButton" alignment="CENTER" mnemonicParsing="false" onAction="#submitButtonPressed" prefWidth="200.0" style="-fx-background-color: #0077be;" text="SUBMIT ANSWER" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="115.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="119.0" prefWidth="600.0">
+                     <children>
+                        <Text fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT VOICE:">
+                           <HBox.margin>
+                              <Insets left="70.0" right="10.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <ComboBox fx:id="selectVoice" onAction="#voiceChanging" prefHeight="26.0" prefWidth="206.0">
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <ProgressBar fx:id="bar" prefHeight="20.0" prefWidth="607.0" progress="0.02" stylesheets="@styles/striped-progress.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ProgressBar>
+                  <Label />
+                  <Text fx:id="_testAccuracyText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="TEST ACCURACY: 75%" textAlignment="CENTER">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="200.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="_levelAccuracyText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL ACCURACY: 68%" textAlignment="CENTER">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="195.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="78.0" fitWidth="83.0" layoutX="100.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/streak-symbol.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <ImageView fitHeight="78.0" fitWidth="83.0" layoutX="350.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/score-symbol.png" />
+         </image>
+      </ImageView>
+      <Line endX="100.0" layoutX="130.0" layoutY="270.0" opacity="0.4" startX="50.0" stroke="#ff00b8" />
+      <Line endX="100.0" layoutX="125.0" layoutY="273.0" opacity="0.4" startX="60.0" stroke="#ff00b8" />
+      <Line endX="100.0" layoutX="380.0" layoutY="270.0" opacity="0.4" startX="50.0" stroke="#ff00b8" />
+      <Line endX="100.0" layoutX="375.0" layoutY="273.0" opacity="0.4" startX="60.0" stroke="#ff00b8" />
+      <Text fx:id="_streakScore" fill="#6e1ba8" layoutX="163.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="83.0">
          <font>
-            <Font name="Loma" size="30.0" />
+            <Font name="Loma" size="20.0" />
          </font>
       </Text>
-   </top>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="PLEASE ENTER WORD BELOW:">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="20.0" />
-               </VBox.margin>
-            </Text>
-            <TextField fx:id="_inputField" onAction="#submitButtonPressed" onMouseClicked="#textFieldClicked" prefHeight="47.0" prefWidth="580.0" promptText="TYPE WORD HERE">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="5.0" />
-               </VBox.margin>
-            </TextField>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#repeatWordPressed" prefWidth="200.0" style="-fx-background-color: #0077be;" text="REPEAT WORD" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets left="40.0" top="20.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="_submitButton" alignment="CENTER" mnemonicParsing="false" onAction="#submitButtonPressed" prefWidth="200.0" style="-fx-background-color: #0077be;" text="SUBMIT ANSWER" textFill="WHITE">
-                     <HBox.margin>
-                        <Insets left="115.0" top="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="86.0" prefWidth="600.0">
-               <children>
-                  <Text fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT VOICE:">
-                     <HBox.margin>
-                        <Insets left="70.0" right="10.0" top="5.0" />
-                     </HBox.margin>
-                  </Text>
-                  <ComboBox fx:id="selectVoice" onAction="#voiceChanging" prefHeight="26.0" prefWidth="206.0">
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin></ComboBox>
-               </children>
-            </HBox>
-            <ProgressBar fx:id="bar" prefHeight="20.0" prefWidth="607.0" progress="0.61" stylesheets="@../../../Resources/striped-progress.css">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </ProgressBar>
-            <Label />
-            <Text fx:id="_testAccuracyText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="TEST ACCURACY: 75%" textAlignment="CENTER">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" />
-               </VBox.margin>
-            </Text>
-            <Text fx:id="_levelAccuracyText" fill="#0077be" strokeType="OUTSIDE" strokeWidth="0.0" text="LEVEL ACCURACY: 68%" textAlignment="CENTER">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="195.0" top="10.0" />
-               </VBox.margin>
-            </Text>
-         </children>
-      </VBox>
-   </center>
-</BorderPane>
+      <Text fx:id="_playerScore" fill="#14e300" layoutX="413.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #6e1ba8;" text="0" textAlignment="CENTER" wrappingWidth="83.0">
+         <font>
+            <Font name="Loma" size="20.0" />
+         </font>
+      </Text>
+      <Line endX="75.0" fill="#f500cc" layoutX="300.0" layoutY="38.0" opacity="0.45" startX="-75.0" stroke="#0058b0" />
+   </children>
+</AnchorPane>

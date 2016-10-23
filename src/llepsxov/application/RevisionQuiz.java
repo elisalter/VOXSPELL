@@ -13,7 +13,7 @@ public class RevisionQuiz {
 
 
 
-    private File _failedFile = new File("failedStats.ser");
+    private File _failedFile = new File(".failedStats.ser");
     private Map<Integer, ArrayList<Word>> _failedList;
 
     private static RevisionQuiz instance = null;

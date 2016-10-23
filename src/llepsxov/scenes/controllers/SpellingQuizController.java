@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import llepsxov.application.*;
 
@@ -19,14 +21,10 @@ import java.util.ResourceBundle;
  */
 public class SpellingQuizController implements Initializable {
 
-
-
     Statistics _stats = new Statistics();
-
-
     private Spelling_Logic _spellingLogic = new Spelling_Logic(_stats);
     private DataBase _dataBase = DataBase.getInstance();
-
+    private Scores _scores = Scores.getInstance();
 
     @FXML
     private Text _levelAccuracyText;
@@ -40,7 +38,6 @@ public class SpellingQuizController implements Initializable {
     @FXML
     private ComboBox selectVoice;
 
-
     @FXML
     private TextField _inputField;
 
@@ -50,23 +47,25 @@ public class SpellingQuizController implements Initializable {
     @FXML
     private ProgressBar bar;
 
+    @FXML
+    private Text _streakScore;
+
+    @FXML
+    private Text _playerScore;
 
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
-
-
-
-
 
     @FXML
     public void textFieldClicked() {
         _inputField.clear();
     }
 
-
     @FXML
     public void submitButtonPressed() {
 
-       String userInput = _inputField.getText();
+        String userInput = _inputField.getText();
+        int inputPointsValue = userInput.length();
+
         _inputField.clear();
 
         textFieldChange(userInput);
@@ -76,46 +75,66 @@ public class SpellingQuizController implements Initializable {
 
             if (_spellingLogic.spellingCorrect(userInput)) {
 
+                _scores.set_streak(_scores.get_streak()+1);
+
+                _scores.set_score(_scores.get_score()+inputPointsValue);
+                _streakScore.setText(""+_scores.get_streak());
+                _playerScore.setText(""+_scores.get_score());
+
                 _stats.increaseMastered();
                 _spellingLogic.addMasteredStats();
 
+                setAccuracyText();
+                incrementProgressBar();
 
-                _testAccuracyText.setText("TEST ACCURACY: " +  _stats.calculateAccurracy() + "%");
-                _levelAccuracyText.setText("LEVEL ACCURACY: " + _stats.calculateLevelAccuracy(Level.getCurrentlevel()) + "%");
-                //-------------------------------------------------------------------
-            } else {
-                //----------------------------------------
+            } else { // did not master the word, set the streak back to zero
+
+                //check if new high streak!
+                if(_scores.get_streak() > _scores.get_highStreak()){
+
+                    _scores.set_highStreak(_scores.get_streak());
+
+                }
+
+                _scores.set_streak(0);
+                _streakScore.setText(""+_scores._streak);
             }
 
         } else if (iteration == 2) {    //faulted, failed
 
-            if (_spellingLogic.spellingCorrect(userInput)) {
+
+            if (_spellingLogic.spellingCorrect(userInput)) {// word is correct on second attempt, word was faulted
+
+                _scores.set_score(_scores.get_score()+Math.round(userInput.length()/2)); // gets half amount of points as faulted
+                _playerScore.setText(""+_scores.get_score());
+
                 _stats.increaseFaulted();
                 _spellingLogic.addFaultedStats();
 
-                _testAccuracyText.setText("TEST ACCURACY: " +  _stats.calculateAccurracy() + "%");
+                incrementProgressBar();
+                setAccuracyText();
 
 
+            } else { // failed the word, set score back to zero
 
-                _levelAccuracyText.setText("LEVEL ACCURACY: " + _stats.calculateLevelAccuracy(Level.getCurrentlevel()) + "%");
+                //check if score is higher than old highscore
+                if(_scores.get_score() > _scores.get_highScore()){
 
-            } else {
+                    _scores.set_highScore(_scores.get_score());
 
+                }
+                _scores.set_score(0);
+                _playerScore.setText(""+_scores.get_score());
+
+                incrementProgressBar();
                 _stats.increaseFailed();
                 _spellingLogic.addFailedStats();
 
             }
-
-            _testAccuracyText.setText("TEST ACCURACY: " +  _stats.calculateAccurracy() + "%");
-            _levelAccuracyText.setText("LEVEL ACCURACY: " + _stats.calculateLevelAccuracy(Level.getCurrentlevel()) + "%");
+            setAccuracyText();
         }
 
-
-
-        //_inputField.setStyle("-fx-background-color: #ffffff;");
         _spellingLogic.spellingQuiz(userInput);
-
-
 
     }
 
@@ -136,14 +155,10 @@ public class SpellingQuizController implements Initializable {
     public void textFieldChange(String input) {
         if (_spellingLogic.spellingCorrect(input)) {
             _inputField.setStyle("-fx-background-color: #317873;");
-
         } else {
             _inputField.setStyle("-fx-background-color:  #933D41");
-            
         }
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -154,13 +169,61 @@ public class SpellingQuizController implements Initializable {
         _spellingLogic.setUpQuiz();
         _spellingLogic.spellingQuiz("");
 
-
-
         _levelText.setText("LEVEL " +  Level.getCurrentlevel());
         _testAccuracyText.setText("TEST ACCURACY: 100.0%");
         _levelAccuracyText.setText("LEVEL ACCURACY: " + _stats.calculateLevelAccuracy(Level.getCurrentlevel()) + "%");
 
+        setAccuracyColour("t", 100.00); // set test acurracy colour to default value for score of 100%
+        setAccuracyColour("l", _stats.calculateLevelAccuracy(Level.getCurrentlevel())); // set level colour
+        _streakScore.setText(""+_scores._streak);
+        _playerScore.setText(""+_scores.get_score());
+
     }
 
+    public void incrementProgressBar(){
+        double currentProgress = bar.getProgress();
+        double amountToIncrement = 1/(double)_spellingLogic.getNumberWords();
+        bar.setProgress(currentProgress+amountToIncrement);
+    }
+
+    public void setAccuracyText(){
+
+        double tA = _stats.calculateAccurracy();
+        double lA = _stats.calculateLevelAccuracy(Level.getCurrentlevel());
+
+        _testAccuracyText.setText("TEST ACCURACY: " +  tA + "%");
+        _levelAccuracyText.setText("LEVEL ACCURACY: " + lA + "%");
+
+        setAccuracyColour("t", tA);
+        setAccuracyColour("l", lA);
+
+
+    }
+
+    public void setAccuracyColour(String levelOrTest, double statsOrLevelAccuracy){
+
+        String colRepresentation;
+
+
+        if (statsOrLevelAccuracy<50.00) {
+
+            colRepresentation="#f04409";
+
+        } else if (statsOrLevelAccuracy<70.00) {
+
+            colRepresentation="#fb8810";
+
+        } else {
+
+            colRepresentation="#37bf4f";
+
+        }
+
+        if(levelOrTest.toLowerCase().equals("l")) {
+            _levelAccuracyText.setFill(Color.web(colRepresentation));
+        } else {
+            _testAccuracyText.setFill(Color.web(colRepresentation));
+        }
+    }
 
 }

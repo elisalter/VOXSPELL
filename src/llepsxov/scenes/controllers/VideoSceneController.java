@@ -63,7 +63,7 @@ public class VideoSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String path = new File("big_buck_bunny_1_minute.mp4").getAbsolutePath();
+        String path = new File("src/llepsxov/scenes/resources/videos/big_buck_bunny_1_minute.mp4").getAbsolutePath();
 
         media = new Media(new File(path).toURI().toString());
         mediaPlayer = new MediaPlayer(media);

@@ -104,7 +104,6 @@ public class Statistics {
 
 
         if (wordsAppearedOnLevel == 0){
-            System.out.println("User has not attempted quiz for this level");
             return 100.0;
         }
 
