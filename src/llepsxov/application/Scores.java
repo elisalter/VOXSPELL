@@ -27,7 +27,7 @@ public class Scores implements Serializable{
                 _streak = oldScores._streak;
                 _score = oldScores._score;
                 _highScore = oldScores._highScore;
-                _highStreak = oldScores._streak;
+                _highStreak = oldScores._highStreak;
 
                 fileIn.close();
                 objectIn.close();

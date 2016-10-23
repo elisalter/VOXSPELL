@@ -48,10 +48,10 @@ public class SpellingQuizController implements Initializable {
     private ProgressBar bar;
 
     @FXML
-    private Text _streakScore;
+    private Text _streakScore; // displays current streak value
 
     @FXML
-    private Text _playerScore;
+    private Text _playerScore; // displays current score value
 
     @FXML
     private Text highScoreText;
@@ -81,7 +81,7 @@ public class SpellingQuizController implements Initializable {
 
             if (_spellingLogic.spellingCorrect(userInput)) {
 
-                _scores.set_streak(_scores.get_streak()+1);
+                _scores.set_streak(_scores.get_streak()+1);//increment current streak by 1
 
                 _scores.set_score(_scores.get_score()+inputPointsValue);
                 _streakScore.setText(""+_scores.get_streak());
@@ -97,15 +97,15 @@ public class SpellingQuizController implements Initializable {
             } else { // did not master the word, set the streak back to zero
 
                 //check if new high streak!
-                if(_scores.get_streak() > _scores.get_highStreak()){
+                if(_scores.get_streak() > _scores.get_highStreak()){ // if streak that just eneded > highstreak
 
-                    _scores.set_highStreak(_scores.get_streak());
+                    _scores.set_highStreak(_scores.get_streak()); // set streak as streak that's just ended
 
                 }
                 setHighScoreAndStreak();
 
-                _scores.set_streak(0);
-                _streakScore.setText(""+_scores._streak);
+                _scores.set_streak(0); // reset streak to zero
+                _streakScore.setText(""+_scores._streak); // set the streak text back to zero too
             }
 
         } else if (iteration == 2) {    //faulted, failed

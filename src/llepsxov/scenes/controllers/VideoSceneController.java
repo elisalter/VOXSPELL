@@ -53,7 +53,7 @@ public class VideoSceneController implements Initializable {
     }
 
     public void muteButtonPressed(ActionEvent event) {
-        //mediaPlayer.mute();
+        mediaPlayer.setMute(!mediaPlayer.isMute());
     }
 
 
