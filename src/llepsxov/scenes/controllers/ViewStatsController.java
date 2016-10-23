@@ -42,7 +42,7 @@ public class ViewStatsController implements Initializable {
 
     DisplayingStats _statistics = new DisplayingStats();
 
-    ObservableList<Word> data = FXCollections.observableArrayList();
+
 
 
     @Override
@@ -63,7 +63,6 @@ public class ViewStatsController implements Initializable {
     public void level1Pressed(){
         populateObservableList(1);
         buttonClicked(Button1);
-        String outputText = _statistics.printStatistics(1);
 
     }
 
@@ -71,21 +70,18 @@ public class ViewStatsController implements Initializable {
     public void level2Pressed(){
         populateObservableList(2);
         buttonClicked(Button2);
-        String outputText = _statistics.printStatistics(2);
     }
 
     @FXML
     public void level3Pressed() {
         populateObservableList(3);
         buttonClicked(Button3);
-        String outputText = _statistics.printStatistics(3);
     }
 
     @FXML
     public void level4Pressed(){
         populateObservableList(4);
         buttonClicked(Button4);
-        String outputText = _statistics.printStatistics(4);
 
     }
 
@@ -93,7 +89,6 @@ public class ViewStatsController implements Initializable {
     public void level5Pressed(){
         populateObservableList(5);
         buttonClicked(Button5);
-        String outputText = _statistics.printStatistics(5);
 
     }
 
@@ -101,7 +96,6 @@ public class ViewStatsController implements Initializable {
     public void level6Pressed(){
         populateObservableList(6);
         buttonClicked(Button6);
-        String outputText = _statistics.printStatistics(6);
 
     }
 
@@ -109,7 +103,6 @@ public class ViewStatsController implements Initializable {
     public void level7Pressed(){
         populateObservableList(7);
         buttonClicked(Button7);
-        String outputText = _statistics.printStatistics(7);
 
     }
 
@@ -117,7 +110,6 @@ public class ViewStatsController implements Initializable {
     public void level8Pressed(){
         populateObservableList(8);
         buttonClicked(Button8);
-        String outputText = _statistics.printStatistics(8);
 
     }
 
@@ -125,7 +117,6 @@ public class ViewStatsController implements Initializable {
     public void level9Pressed(){
         populateObservableList(9);
         buttonClicked(Button9);
-        String outputText = _statistics.printStatistics(9);
 
     }
 
@@ -133,7 +124,6 @@ public class ViewStatsController implements Initializable {
     public void level10Pressed(){
         populateObservableList(10);
         buttonClicked(Button10);
-        String outputText = _statistics.printStatistics(10);
 
     }
 
@@ -157,7 +147,7 @@ public class ViewStatsController implements Initializable {
 
     public void populateObservableList(int level){
 
-        data = FXCollections.observableArrayList();
+        ObservableList<Word> data = FXCollections.observableArrayList();
 
         for(Word word : _db.getStoredStats()){
 

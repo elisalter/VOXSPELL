@@ -9,6 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.ViewStatsController">
     <children>
+      <Circle fill="DODGERBLUE" layoutX="301.0" layoutY="211.0" opacity="0.1" radius="301.0" stroke="WHITE" strokeType="INSIDE" />
       <GridPane alignment="CENTER" layoutX="3.0" layoutY="37.0" prefHeight="360.0" prefWidth="174.0" style="-fx-background-color: #ADD8E6; -fx-border-color: #ffffff;">
          <children>
             <Button fx:id="Button1" mnemonicParsing="false" onMouseClicked="#level1Pressed" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: #ADD8E6;" text="LEVEL 1" textFill="#0077be">
@@ -78,7 +79,6 @@
             <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Circle fill="DODGERBLUE" layoutX="301.0" layoutY="211.0" opacity="0.1" radius="301.0" stroke="WHITE" strokeType="INSIDE" />
       <Text fill="#0077be" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIEW STATISTICS" textAlignment="CENTER" wrappingWidth="601.27880859375">
          <font>
             <Font name="Loma" size="25.0" />
