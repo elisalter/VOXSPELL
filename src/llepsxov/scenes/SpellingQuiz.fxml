@@ -124,5 +124,8 @@
          </font>
       </Text>
       <Line endX="75.0" fill="#f500cc" layoutX="300.0" layoutY="38.0" opacity="0.45" startX="-75.0" stroke="#0058b0" />
+      <Text fx:id="highScoreText" fill="#7613cd" layoutX="455.0" layoutY="20.0" opacity="0.71" strokeType="OUTSIDE" strokeWidth="0.0" text="HIGH SCORE: 105" wrappingWidth="142.72412109375" />
+      <Text fx:id="highStreakText" fill="#7613cd" layoutX="455.0" layoutY="40.0" opacity="0.71" strokeType="OUTSIDE" strokeWidth="0.0" text="HIGH STREAK: 34" wrappingWidth="134.72412109375" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="45.0" layoutX="444.0" layoutY="4.0" opacity="0.44" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="135.0" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -19,6 +20,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="llepsxov.scenes.controllers.RevisionSettingsController">
     <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ff6ff" height="25.0" layoutX="220.0" layoutY="60.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="166.0" />
         <Text fill="#0077be" layoutX="219.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REVISION QUIZ">
             <font>
                 <Font name="Loma" size="21.0" />

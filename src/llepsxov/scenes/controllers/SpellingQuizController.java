@@ -53,6 +53,12 @@ public class SpellingQuizController implements Initializable {
     @FXML
     private Text _playerScore;
 
+    @FXML
+    private Text highScoreText;
+
+    @FXML
+    private Text highStreakText;
+
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
 
     @FXML
@@ -86,6 +92,7 @@ public class SpellingQuizController implements Initializable {
 
                 setAccuracyText();
                 incrementProgressBar();
+                setHighScoreAndStreak();
 
             } else { // did not master the word, set the streak back to zero
 
@@ -95,6 +102,7 @@ public class SpellingQuizController implements Initializable {
                     _scores.set_highStreak(_scores.get_streak());
 
                 }
+                setHighScoreAndStreak();
 
                 _scores.set_streak(0);
                 _streakScore.setText(""+_scores._streak);
@@ -113,6 +121,7 @@ public class SpellingQuizController implements Initializable {
 
                 incrementProgressBar();
                 setAccuracyText();
+                setHighScoreAndStreak();
 
 
             } else { // failed the word, set score back to zero
@@ -129,9 +138,11 @@ public class SpellingQuizController implements Initializable {
                 incrementProgressBar();
                 _stats.increaseFailed();
                 _spellingLogic.addFailedStats();
+                setHighScoreAndStreak();
 
             }
             setAccuracyText();
+            setHighScoreAndStreak();
         }
 
         _spellingLogic.spellingQuiz(userInput);
@@ -163,6 +174,8 @@ public class SpellingQuizController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+
         selectVoice.setValue(Festival.voice());
         selectVoice.setItems(voiceList);
 
@@ -177,6 +190,8 @@ public class SpellingQuizController implements Initializable {
         setAccuracyColour("l", _stats.calculateLevelAccuracy(Level.getCurrentlevel())); // set level colour
         _streakScore.setText(""+_scores._streak);
         _playerScore.setText(""+_scores.get_score());
+
+        setHighScoreAndStreak();
 
     }
 
@@ -224,6 +239,13 @@ public class SpellingQuizController implements Initializable {
         } else {
             _testAccuracyText.setFill(Color.web(colRepresentation));
         }
+    }
+
+    public void setHighScoreAndStreak(){
+
+        highScoreText.setText("HIGH SCORE: " + _scores.get_highScore());
+        highStreakText.setText("HIGH STREAK: " + _scores.get_highStreak());
+
     }
 
 }
