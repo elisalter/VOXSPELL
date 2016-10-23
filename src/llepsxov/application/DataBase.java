@@ -37,7 +37,7 @@ public class DataBase {
 
         if (_wordList == null) {
             _wordList = new HashMap<Integer, ArrayList<String>>();
-            importWordList();
+            importWordList("./src/llepsxov/spelling/NZCER-spelling-lists.txt"); //loads default list on construction
         }
     }
 
@@ -102,14 +102,14 @@ public class DataBase {
     /**
      * imports words from file and puts into hashmap with levels as keys
      */
-    public void importWordList() {
+    public void importWordList(String filePath) {
 
         String currentLine;
         int level = 1;
         ArrayList<String> levelList = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("./src/llepsxov/spelling/NZCER-spelling-lists.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
 
             while ((currentLine = br.readLine()) != null) {
                 if (currentLine.charAt(0) == '%') {

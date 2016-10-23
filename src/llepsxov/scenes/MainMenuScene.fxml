@@ -47,6 +47,13 @@
                   <Text fill="WHITE" layoutX="303.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GITHUB REPOSITORY:" underline="true" />
                   <Text fill="WHITE" layoutX="303.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://github.com/elisalter/Voxspell.git" wrappingWidth="227.82177734375" />
                   <Text fx:id="errorReadingFile" fill="#d01919" layoutX="341.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ERROR READING FILE!" />
+                  <Button layoutX="60.0" layoutY="272.0" mnemonicParsing="false" onMouseClicked="#newSpellingList" style="-fx-background-radius: 5em; -fx-background-color: #5ce3e0;" text="CUSTOM SPELLING LIST" />
+                  <Button layoutX="59.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#defaultList" prefHeight="25.0" prefWidth="172.0" style="-fx-background-radius: 5em; -fx-background-color: #5ce399;" text="DEFAULT LIST" />
+                  <Text fx:id="selectedListAlert" fill="#b9b5b5" layoutX="8.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="thisWordList SELECTED" textAlignment="CENTER" wrappingWidth="272.0">
+                     <font>
+                        <Font name="Loma" size="11.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
             <VBox prefHeight="200.0" prefWidth="100.0">

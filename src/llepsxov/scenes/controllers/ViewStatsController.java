@@ -36,9 +36,6 @@ public class ViewStatsController implements Initializable {
     @FXML
     TableView statsTable;
 
-    @FXML
-    SplitPane splitPane;
-
     DataBase _db = DataBase.getInstance();
 
     ArrayList<Button> levelButtons = new ArrayList<Button>();
@@ -51,9 +48,6 @@ public class ViewStatsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
-
-        disableSplitPane();
         addButtons();
         setDataPropertiesToColumns();
         for(Button b : levelButtons){b.setOpacity(0.5);}
@@ -201,8 +195,4 @@ public class ViewStatsController implements Initializable {
         );
     }
 
-    public void disableSplitPane(){
-        splitPane.lookupAll(".split-pane-divider").stream()
-                .forEach(div ->  div.setMouseTransparent(true) );
-    }
 }
