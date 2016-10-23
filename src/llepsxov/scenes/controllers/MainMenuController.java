@@ -1,5 +1,6 @@
 package llepsxov.scenes.controllers;
 
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -86,8 +87,9 @@ public class MainMenuController implements Initializable {
     public void readMeButtonPressed() {
 
         try {
-            //DesktopApi.open(new File("README.md"));
-            java.awt.Desktop.getDesktop().edit(new File("README.md"));
+
+            DesktopApi.open(new File("README.md"));
+
         } catch(Exception e){
             errorReadingFile.setOpacity(1.00);
         }
