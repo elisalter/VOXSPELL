@@ -15,12 +15,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * javaFX controller class for the scene LevelFailed.fxml
+ * javaFX controller class for the scene LevelFailedScene.fxml, scene that appears after failing a level
+ * @Author Eli Salter
  */
 public class LevelFailedController implements Initializable {
 
     @FXML
-    private Button nextLevel;
+    private Button nextLevel; // disabled if level 10
 
     /**
      * controls the logic for the retry level button, when pressed the scene switches to SpellingQuiz.fxml
@@ -46,6 +47,12 @@ public class LevelFailedController implements Initializable {
         stage.show();
     }
 
+    public void statisticsButtonClicked() throws IOException{
+        Stage stage = Voxspell.getPrimaryStage();
+        Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/ViewStatsScene.fxml"));
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
+    }
 
     /**
      * called when the scene is opened, makes sure to disable the next level button if on level 10
