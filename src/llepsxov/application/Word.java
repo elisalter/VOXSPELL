@@ -3,7 +3,7 @@ package llepsxov.application;
 import java.io.Serializable;
 
 /**
- * Created by zihao123yang on 16/09/16.
+ *  Class used for creating word objects.
  */
 public class Word implements Serializable, Comparable<Word> {
 
@@ -15,48 +15,83 @@ public class Word implements Serializable, Comparable<Word> {
     private int _level;
     private int numAppeared;
 
-    public int getNumAppeared() {
-        return _numMastered + _numFaulted + _numFailed;
-    }
-
-    public void setNumAppeared(int numAppeared) {
-        this.numAppeared = numAppeared;
-    }
-
+    /**
+     * creates a new word with a name referring to the word, and the level it belongs in.
+     * @param word
+     * @param level
+     */
     public Word(String word, int level) {
         _word = word;
         _level = level;
     }
 
+    /**
+     * increment times the word has been mastered
+     */
     public void addMastered() {
 
         _numMastered++;
     }
 
+    /**
+     * incrememt the times the word has been faulted
+     */
     public void addFaulted() {
 
         _numFaulted++;
     }
 
+    /**
+     * incrememnt the times the word has been failed
+     */
     public void addFailed() {
 
         _numFailed++;
     }
 
+    /**
+     * return the name of the word
+     * @return name of word
+     */
     public String name() {
 
         return _word;
     }
 
+    /**
+     * compares two words together, used for sorting
+     *
+     * @param o = word to compare with this
+     * @return int -1 if less than 0 if equal 1 if greater
+     */
     @Override
     public int compareTo(Word o) {
         return _word.compareTo(o._word);
     }
 
+    /**
+     * overrides the toString() method
+     * @return name of this word
+     */
     @Override
     public String toString(){
         return this._word;
     }
+
+    /**
+     * overrides the equals() method
+     * @param word, used for equality check
+     * @return true or false
+     */
+    @Override
+    public boolean equals(Object word){
+
+        return this._word.equals(((Word)word)._word);
+    }
+
+
+    //=================================================================================================================
+    // getters and setters below
 
     public int getLevel(){
         return this._level;
@@ -82,10 +117,12 @@ public class Word implements Serializable, Comparable<Word> {
         this._word = _word;
     }
 
-    @Override
-    public boolean equals(Object word){
+    public int getNumAppeared() {
+        return _numMastered + _numFaulted + _numFailed;
+    }
 
-        return this._word.equals(((Word)word)._word);
+    public void setNumAppeared(int numAppeared) {
+        this.numAppeared = numAppeared;
     }
 
 }

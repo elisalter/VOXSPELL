@@ -9,7 +9,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import llepsxov.application.*;
 
@@ -22,7 +21,7 @@ import java.util.ResourceBundle;
 public class SpellingQuizController implements Initializable {
 
     Statistics _stats = new Statistics();
-    private Spelling_Logic _spellingLogic = new Spelling_Logic(_stats);
+    private SpellingLogic _spellingLogic = new SpellingLogic(_stats);
     private DataBase _dataBase = DataBase.getInstance();
     private Scores _scores = Scores.getInstance();
 

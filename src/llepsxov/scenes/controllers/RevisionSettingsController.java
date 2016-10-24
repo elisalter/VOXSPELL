@@ -155,7 +155,7 @@ public class RevisionSettingsController implements Initializable {
     @FXML
     public void continueToQuiz() throws IOException {
 
-        Spelling_Logic._isNewQuiz = false;
+        SpellingLogic._isNewQuiz = false;
 
         Stage stage = Voxspell.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/SpellingQuiz.fxml"));

@@ -10,7 +10,15 @@ import java.io.IOException;
 
 
 /**
- * a simple javaFX program which acts as a spelling aid
+ * a simple javaFX program which acts as a spelling aid for English as a second language learners (18-25)
+ *
+ * features: custom word lists
+ *           highscores and high streaks
+ *           10 levels
+ *           video rewards
+ *           review mode
+ *
+ * repository: https://github.com/elisalter/Voxspell.git
  */
 public class Voxspell extends Application {
 
@@ -76,8 +84,10 @@ public class Voxspell extends Application {
     }
 
 
-
-
+    /**
+     * initialises the Voxspell application
+     * @param args
+     */
     public static void main(String[] args) {
 
         launch(args);

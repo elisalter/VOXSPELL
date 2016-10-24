@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import llepsxov.application.Festival;
 import llepsxov.application.Level;
-import llepsxov.application.Spelling_Logic;
+import llepsxov.application.SpellingLogic;
 import llepsxov.application.Voxspell;
 
 import java.io.IOException;
@@ -174,7 +174,7 @@ public class SelectQuizSettingsController implements Initializable {
     public void continueToQuiz() throws IOException {
 
         Level.setUnlockedlevel(_levelUnlocked);
-        Spelling_Logic._isNewQuiz = true;
+        SpellingLogic._isNewQuiz = true;
 
         Stage stage = Voxspell.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/SpellingQuiz.fxml"));
