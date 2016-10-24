@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by zihao123yang on 19/09/16.
+ * JavaFX controller class for the spelling quiz scene
  */
 public class SpellingQuizController implements Initializable {
 
@@ -26,13 +26,7 @@ public class SpellingQuizController implements Initializable {
     private Scores _scores = Scores.getInstance();
 
     @FXML
-    private Text _levelAccuracyText;
-
-    @FXML
-    private Text _testAccuracyText;
-
-    @FXML
-    private Text _levelText;
+    private Text _levelAccuracyText, _testAccuracyText, _levelText, _streakScore, _playerScore, highScoreText, highStreakText;
 
     @FXML
     private ComboBox selectVoice;
@@ -41,37 +35,29 @@ public class SpellingQuizController implements Initializable {
     private TextField _inputField;
 
     @FXML
-    private Button _submitButton;
-
-    @FXML
     private ProgressBar bar;
 
-    @FXML
-    private Text _streakScore; // displays current streak value
-
-    @FXML
-    private Text _playerScore; // displays current score value
-
-    @FXML
-    private Text highScoreText;
-
-    @FXML
-    private Text highStreakText;
-
+    // list of avaiable voices
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
 
+    /**
+     * clear the input field when clicked
+     */
     @FXML
     public void textFieldClicked() {
         _inputField.clear();
     }
 
+    /**
+     * checks the users spelling of selected word when the submit button or enter is pressed
+     */
     @FXML
     public void submitButtonPressed() {
 
         String userInput = _inputField.getText();
         int inputPointsValue = userInput.length();
 
-        _inputField.clear();
+        _inputField.clear(); // clear the textarea
 
         textFieldChange(userInput);
         int iteration = _spellingLogic.whichIteration();
@@ -148,11 +134,17 @@ public class SpellingQuizController implements Initializable {
 
     }
 
+    /**
+     * repeat the word when the repeat button is pressed
+     */
     @FXML
     public void repeatWordPressed() {
         Festival.callFestival(_spellingLogic.currentWord());
     }
 
+    /**
+     * changes the voice dynamically
+     */
     @FXML
     public void voiceChanging() {
         if (selectVoice.getValue().equals("voice_kal_diphone")) {
@@ -162,6 +154,14 @@ public class SpellingQuizController implements Initializable {
         }
     }
 
+    /**
+     * sets the background colour based on the correctness of the users answer
+     *
+     * green for correct
+     * red for incorrect
+     *
+     * @param input users input
+     */
     public void textFieldChange(String input) {
         if (_spellingLogic.spellingCorrect(input)) {
             _inputField.setStyle("-fx-background-color: #317873;");
@@ -170,10 +170,14 @@ public class SpellingQuizController implements Initializable {
         }
     }
 
+    /**
+     * called on startup of the spelling quiz, initializes the voice and sets up the SpellingLogic object
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
 
         selectVoice.setValue(Festival.voice());
         selectVoice.setItems(voiceList);
@@ -181,6 +185,8 @@ public class SpellingQuizController implements Initializable {
         _spellingLogic.setUpQuiz();
         _spellingLogic.spellingQuiz("");
 
+
+        // test accuracy begins at 100%, level accuracy is calculated
         _levelText.setText("LEVEL " +  Level.getCurrentlevel());
         _testAccuracyText.setText("TEST ACCURACY: 100.0%");
         _levelAccuracyText.setText("LEVEL ACCURACY: " + _stats.calculateLevelAccuracy(Level.getCurrentlevel()) + "%");
@@ -190,16 +196,22 @@ public class SpellingQuizController implements Initializable {
         _streakScore.setText(""+_scores._streak);
         _playerScore.setText(""+_scores.get_score());
 
-        setHighScoreAndStreak();
+        setHighScoreAndStreak(); // grab the highscore and high streak values
 
     }
 
+    /**
+     * increments the progress bar based on the number of words left in the quiz
+     */
     public void incrementProgressBar(){
         double currentProgress = bar.getProgress();
         double amountToIncrement = 1/(double)_spellingLogic.getNumberWords();
         bar.setProgress(currentProgress+amountToIncrement);
     }
 
+    /**
+     * sets the accuracy for both the test and the level
+     */
     public void setAccuracyText(){
 
         double tA = _stats.calculateAccurracy();
@@ -210,14 +222,20 @@ public class SpellingQuizController implements Initializable {
 
         setAccuracyColour("t", tA);
         setAccuracyColour("l", lA);
-
-
     }
 
+    /**
+     * calculated the associated colour of the accuracy
+     *
+     * greener the colour the higher the accuracy
+     * red for low/poor accuracy
+     *
+     * @param levelOrTest "l" set level accuracy, "t" set test accuracy
+     * @param statsOrLevelAccuracy the associated accuracy value (between 0 and 100)
+     */
     public void setAccuracyColour(String levelOrTest, double statsOrLevelAccuracy){
 
         String colRepresentation;
-
 
         if (statsOrLevelAccuracy<50.00) {
 
@@ -233,6 +251,7 @@ public class SpellingQuizController implements Initializable {
 
         }
 
+        // set field accordingly
         if(levelOrTest.toLowerCase().equals("l")) {
             _levelAccuracyText.setFill(Color.web(colRepresentation));
         } else {
@@ -240,6 +259,9 @@ public class SpellingQuizController implements Initializable {
         }
     }
 
+    /**
+     * sets the highScore and highest streak values in top right hand corner of a spelling quiz
+     */
     public void setHighScoreAndStreak(){
 
         highScoreText.setText("HIGH SCORE: " + _scores.get_highScore());

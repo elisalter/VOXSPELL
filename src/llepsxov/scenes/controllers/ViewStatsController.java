@@ -1,8 +1,7 @@
 package llepsxov.scenes.controllers;
 
-import javafx.beans.InvalidationListener;
+
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import llepsxov.application.Voxspell;
 import llepsxov.application.Word;
@@ -22,15 +20,15 @@ import java.util.*;
 import llepsxov.application.*;
 
 /**
- * Created by eli on 22/09/16.
+ * JavaFX controller class for the statistics screen in VOXSPELL
  */
 public class ViewStatsController implements Initializable {
 
     @FXML
-    Button Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8, Button9, Button10;
+    Button Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8, Button9, Button10; // level buttons
 
     @FXML
-    TableColumn wordCol, appearedCol, masteredCol, faultedCol, failedCol;
+    TableColumn wordCol, appearedCol, masteredCol, faultedCol, failedCol; // table colums
 
     @FXML
     TableView statsTable;
@@ -39,10 +37,11 @@ public class ViewStatsController implements Initializable {
 
     ArrayList<Button> levelButtons = new ArrayList<Button>();
 
-
-
-
-
+    /**
+     * called on the start up of the statistics screen, sets level 1 as the default stats display
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -53,9 +52,18 @@ public class ViewStatsController implements Initializable {
 
     }
 
+    /**
+     * adds all buttons to arraylist
+     */
     public void addButtons(){
         levelButtons.addAll(Arrays.asList(Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8, Button9, Button10));
     }
+
+    //==================================================================================================================
+    // Below are methods for when level buttons are pressed
+    // the tables data update method is called with the associated level input
+    // transparency of other buttons is changed to highlight the level being displayed
+
 
     @FXML
     public void level1Pressed(){
@@ -125,6 +133,13 @@ public class ViewStatsController implements Initializable {
 
     }
 
+
+    //=================================================================================================================
+
+    /**
+     * switches scene to main menu
+     * @throws IOException
+     */
     @FXML
     public void returnToMainMenu() throws IOException{
         Stage stage = Voxspell.getPrimaryStage();
@@ -133,6 +148,10 @@ public class ViewStatsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * dims buttons not clicked and highlights button that was clicked
+     * @param btnClicked
+     */
     public void buttonClicked(Button btnClicked){
         for(Button b : levelButtons){
             if(b.equals(btnClicked)){
@@ -143,23 +162,33 @@ public class ViewStatsController implements Initializable {
         }
     }
 
+    /**
+     * updates the StatsTable to display stats for the selected level
+     * @param level
+     */
     public void populateObservableList(int level){
 
-        ObservableList<Word> data = FXCollections.observableArrayList();
+        ObservableList<Word> data = FXCollections.observableArrayList(); // reinitialises the data model
 
+        //for every word int he data base
         for(Word word : _db.getStoredStats()){
-
-            if (word.getLevel() == level) {
+            if (word.getLevel() == level) { // if word is in right level, add it
                 data.add(word);
 
             }
         }
 
         wordCol.setSortType(TableColumn.SortType.DESCENDING);
+
+        // add new data set to the table
         statsTable.setItems(data);
 
     }
 
+    /**
+     * sets the data properties for the colums of the statistics table based on fields in the llepsxov.application.word
+     * class
+     */
     public void setDataPropertiesToColumns(){
 
         wordCol.setCellValueFactory(

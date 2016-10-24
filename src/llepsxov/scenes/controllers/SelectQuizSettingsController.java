@@ -25,11 +25,10 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 /**
- * Created by eli on 21/09/16.
+ *
  * Controls the logic for the scene after the 'New Quiz button' or 'Review  Quiz button' is selected
  */
 public class SelectQuizSettingsController implements Initializable {
-
 
     ArrayList<ToggleButton> myButtons = new ArrayList<ToggleButton>();
 
@@ -43,34 +42,7 @@ public class SelectQuizSettingsController implements Initializable {
     Button continueButton;
 
     @FXML
-    ToggleButton level1;
-
-    @FXML
-    ToggleButton level2;
-
-    @FXML
-    ToggleButton level3;
-
-    @FXML
-    ToggleButton level4;
-
-    @FXML
-    ToggleButton level5;
-
-    @FXML
-    ToggleButton level6;
-
-    @FXML
-    ToggleButton level7;
-
-    @FXML
-    ToggleButton level8;
-
-    @FXML
-    ToggleButton level9;
-
-    @FXML
-    ToggleButton level10;
+    ToggleButton level1, level2, level3, level4, level5, level6, level7, level8, level9, level10;
 
     @FXML
     private ComboBox voiceChoiceBox;
@@ -79,6 +51,13 @@ public class SelectQuizSettingsController implements Initializable {
     Text levelSelectWarning;
 
     ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
+
+    //=================================================================================================================
+    // methods controlling the logic of the level buttons follow below
+    //
+    // the stat setLevel() method is called, and the button which is selected is highlighted
+    // warning message disappears
+    // unlocked level is set, and the continue button is made available
 
     @FXML
     public void level1Pressed(ActionEvent event) {
@@ -170,11 +149,18 @@ public class SelectQuizSettingsController implements Initializable {
         levelSelectWarning.setOpacity(0);
     }
 
+    //=================================================================================================================
+
+
+    /**
+     * changes the scene to the spelling quiz scene
+     * @throws IOException
+     */
     @FXML
     public void continueToQuiz() throws IOException {
 
         Level.setUnlockedlevel(_levelUnlocked);
-        SpellingLogic._isNewQuiz = true;
+        SpellingLogic._isNewQuiz = true; // new spelling quiz
 
         Stage stage = Voxspell.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/SpellingQuiz.fxml"));
@@ -184,6 +170,10 @@ public class SelectQuizSettingsController implements Initializable {
 
     }
 
+    /**
+     * changes the scene to the main menu
+     * @throws IOException
+     */
     @FXML
     public void returnToMainMenu() throws IOException {
 
@@ -198,6 +188,10 @@ public class SelectQuizSettingsController implements Initializable {
 
     }
 
+
+    /**
+     * changes the voice dynamically
+     */
     @FXML
     public void voiceChanging() {
         if (voiceChoiceBox.getValue().equals("voice_kal_diphone")) {
@@ -207,17 +201,22 @@ public class SelectQuizSettingsController implements Initializable {
         }
     }
 
+    /**
+     * called on start up of selection of quiz settings
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        addButtons();
+        addButtons(); // buttons added
 
         voiceChoiceBox.setValue(Festival.voice());
         voiceChoiceBox.setItems(voiceList);
 
-        continueButton.setDisable(true);
+        continueButton.setDisable(true); // can't continue till a level is selected
 
-
+        // for every button if it represents a level higher than the one unlocked disable the button
         if (Level.getUnlockedlevel() != 0) {
             for (int i = 0; i < 10; i++) {
                 if (i + 1 > Level.getUnlockedlevel()) {
@@ -228,20 +227,23 @@ public class SelectQuizSettingsController implements Initializable {
 
     }
 
+    /**
+     * highlights the selected button
+     * @param pressedBtn = the button that was selected
+     */
     public void highlightButton(ToggleButton pressedBtn){
 
         for(ToggleButton b : myButtons){
 
             if (!b.equals(pressedBtn)){
 
-                b.setOpacity(0.50);
+                b.setOpacity(0.50); // dim the button
 
             } else {
 
-                b.setOpacity(1.00);
+                b.setOpacity(1.00); // highlight button
 
             }
-
         }
     }
 }

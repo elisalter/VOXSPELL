@@ -22,61 +22,29 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 /**
- * Created by zihao123yang on 22/09/16.
+ * JavaFX controller class for the RevisionSettings.fxml file in Voxspell
  */
 public class RevisionSettingsController implements Initializable {
 
     ArrayList<ToggleButton> myButtons = new ArrayList<ToggleButton>();
-
     RevisionQuiz _revisionQUiz = RevisionQuiz.getInstance();
-
-    public void addButtons() {
-        myButtons.addAll(Arrays.asList(level1, level2, level3, level4,level5, level6, level7, level8,level9,level10));
-    }
+    ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
 
     @FXML
     Button continueButton;
 
     @FXML
-    ToggleButton level1;
+    ToggleButton level1, level2, level3, level4, level5, level6, level7, level8, level9, level10;
 
     @FXML
-    ToggleButton level2;
-
-    @FXML
-    ToggleButton level3;
-
-    @FXML
-    ToggleButton level4;
-
-    @FXML
-    ToggleButton level5;
-
-    @FXML
-    ToggleButton level6;
-
-    @FXML
-    ToggleButton level7;
-
-    @FXML
-    ToggleButton level8;
-
-    @FXML
-    ToggleButton level9;
-
-    @FXML
-    ToggleButton level10;
-
-    @FXML
-    Label pleaseSelectALevel;
-
-    @FXML
-    Label noLevelsToReview;
+    Label noLevelsToReview, pleaseSelectALevel;
 
     @FXML
     private ComboBox selectVoice;
 
-    ObservableList<String> voiceList = FXCollections.observableArrayList("voice_kal_diphone", "voice_akl_nz_jdt_diphone");
+    //================================================================================================================
+    // Methods controling the logic for when a button is selected in the revision quiz settings screen below
+    // the level is set, and the continue button is enabled (warning message also disappears)
 
     @FXML
     public void level1Pressed(ActionEvent event) {
@@ -152,10 +120,23 @@ public class RevisionSettingsController implements Initializable {
         continueButton.setDisable(false);
     }
 
+    //=================================================================================================================
+
+    /**
+     * adds all buttons to an array list of buttons
+     */
+    public void addButtons() {
+        myButtons.addAll(Arrays.asList(level1, level2, level3, level4,level5, level6, level7, level8,level9,level10));
+    }
+
+    /**
+     * switches scene to a new review quiz
+     * @throws IOException
+     */
     @FXML
     public void continueToQuiz() throws IOException {
 
-        SpellingLogic._isNewQuiz = false;
+        SpellingLogic._isNewQuiz = false;// review quiz
 
         Stage stage = Voxspell.getPrimaryStage();
         Parent root = FXMLLoader.load(getClass().getResource("/llepsxov/scenes/SpellingQuiz.fxml"));
@@ -165,6 +146,10 @@ public class RevisionSettingsController implements Initializable {
 
     }
 
+    /**
+     * switches scene to the main menu
+     * @throws IOException
+     */
     @FXML
     public void returnToMainMenu() throws IOException {
         Stage stage = Voxspell.getPrimaryStage();
@@ -173,6 +158,9 @@ public class RevisionSettingsController implements Initializable {
         stage.show();
     }
 
+    /**
+     * changes the festival voice
+     */
     @FXML
     public void voiceChanging() {
         if (selectVoice.getValue().equals("voice_kal_diphone")) {
@@ -182,9 +170,15 @@ public class RevisionSettingsController implements Initializable {
         }
     }
 
+    /**
+     * called on start up of the RevisionSettings.fxml scene, sets the continuation button to false before a level is
+     * selected
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        addButtons();
+        addButtons(); // add all the buttons to arraylist
 
         continueButton.setDisable(true);
 
@@ -193,10 +187,7 @@ public class RevisionSettingsController implements Initializable {
         selectVoice.setValue(Festival.voice());
         selectVoice.setItems(voiceList);
 
-
-
-
-
+        // for every level, see if there's words to review
         for (int i = 0; i < 10; i++) {
             boolean levelExists = _revisionQUiz.checkAnyWords(i + 1);
 
@@ -205,11 +196,7 @@ public class RevisionSettingsController implements Initializable {
             } else {
                 noLevelsToReview.setVisible(false);
                 pleaseSelectALevel.setVisible(true);
-                //continueButton.setDisable(false);
             }
         }
-
-
-
     }
 }

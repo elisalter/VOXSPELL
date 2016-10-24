@@ -21,10 +21,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by zihao123yang on 22/09/16.
+ * JavaFX controller class for the VideoScene in VOXSPELL rewards
  */
 public class VideoSceneController implements Initializable {
-
 
     @FXML
     private MediaView mediaView;
@@ -34,14 +33,27 @@ public class VideoSceneController implements Initializable {
     private Media media;
 
 
+    /**
+     * play the video
+     * @param event
+     */
     public void playButtonPressed(ActionEvent event) {
         mediaPlayer.play();
     }
 
+    /**
+     * pause the video
+     * @param event
+     */
     public void pauseButtonPressed(ActionEvent event) {
         mediaPlayer.pause();
     }
 
+    /**
+     * stop the video and return to LevelComplete scene
+     * @param event
+     * @throws IOException
+     */
     public void stopButtonPressed(ActionEvent event) throws IOException {
         mediaPlayer.stop();
 
@@ -52,15 +64,19 @@ public class VideoSceneController implements Initializable {
         stage.show();
     }
 
+    /**
+     * mute or unmute the audio
+     * @param event
+     */
     public void muteButtonPressed(ActionEvent event) {
         mediaPlayer.setMute(!mediaPlayer.isMute());
     }
 
-
-
-
-
-
+    /**
+     * called on startup of the video player scene, sets the video to be played and begins to play the video.
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String path = new File("src/llepsxov/scenes/resources/videos/big_buck_bunny_1_minute.mp4").getAbsolutePath();
