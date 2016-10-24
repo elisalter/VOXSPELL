@@ -1,6 +1,5 @@
 package llepsxov.scenes.controllers;
 
-import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -141,7 +140,6 @@ public class MainMenuController implements Initializable {
 
         selectedListAlert.setVisible(false);
         errorReadingFile.setOpacity(0.00); // should be invisible on start up, visible when exception is thrown
-        _dataBase.printSavedFIles();
     }
 }
 

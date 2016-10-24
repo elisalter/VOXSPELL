@@ -3,20 +3,32 @@ package llepsxov.application;
 import java.io.*;
 
 /**
- * Created by eli on 23/10/16.
+ * Serializable object, used to represent information about streaks and scores
+ *
+ * also a singleton class
+ *
+ * streak = number of words correct in a row (mastered)
+ * score = increments based on number of characters in word, if the word is faulted then half points apply, if the word
+ *          is failed then points is set to zero.
  */
 public class Scores implements Serializable{
 
-    public int _streak = 0;
-    public int _score = 0;
-    public int _highScore=0;
-    public int _highStreak=0;
-    public File file = new File(".highScores.ser");
-    private static Scores instance = null;
+    public int _streak;
+    public int _score;
+    public int _highScore;
+    public int _highStreak;
+
+    public File file = new File(".highScores.ser"); // default file to write scores to
+
+    private static Scores instance = null; // singleton instance
 
 
+    /**
+     * loads .highScores.ser serializable object and sets scores+streaks gamestate
+     */
     public void loadScores() {
-        if(file.exists()) {
+
+        if(file.exists()) { // only load the object if the file exists
             try {
 
                 FileInputStream fileIn = new FileInputStream(file);
@@ -24,6 +36,7 @@ public class Scores implements Serializable{
 
                 Scores oldScores = (Scores)objectIn.readObject();
 
+                // set up state from old object
                 _streak = oldScores._streak;
                 _score = oldScores._score;
                 _highScore = oldScores._highScore;
@@ -37,22 +50,24 @@ public class Scores implements Serializable{
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-        } else {
-            // initialise fields if users first play through
-            //_streak = 0;
-            //_score = 0;
-            //_highScore = 0;
-            //_highStreak = 0;
 
         }
     }
 
+    /**
+     * returns Scores instance
+     * @return
+     */
     public static Scores getInstance(){
         if(instance == null){
             instance = new Scores();
         }
         return instance;
     }
+
+    //=================================================================================================================
+    // Getters and setters follow
+    //=================================================================================================================
 
     public int get_streak() {
         return _streak;
@@ -86,6 +101,9 @@ public class Scores implements Serializable{
         this._highStreak = _highStreak;
     }
 
+    /**
+     * save game state to .highScores.ser
+     */
     public void saveData() {
         try {
 
@@ -95,14 +113,18 @@ public class Scores implements Serializable{
 
 
         } catch (IOException e) {
-
+            System.out.println("Exception thrown in Scores#saveData()"); //should use logger
         }
     }
 
+    /**
+     * resets _streak, _score, _highScore, and _highStreak to zero.
+     */
     public void clearScores(){
         _streak = 0;
         _score = 0;
-        _highScore=0;
-        _highStreak=0;
+        _highScore = 0;
+        _highStreak = 0;
     }
+
 }

@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 /**
- * Created by zihao123yang on 16/09/16.
+ * Class used for implementing the Logic of a spelling quiz in VOXSPELL
  */
 public class Spelling_Logic {
 

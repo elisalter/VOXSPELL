@@ -63,8 +63,8 @@ public class Statistics {
      */
     public double calculateAccurracy() {
 
-
         return Math.round(((double)_mastered)/((double)_wordsTested)*100);
+
     }
 
 
@@ -94,16 +94,17 @@ public class Statistics {
 
 
 
-        for(Word word : _db.getStoredStats()){
-            if(word.getLevel() == level){
+        for(Word word : _db.getStoredStats()){ // for every word in stats
+
+            if(word.getLevel() == level){ // if the words level is relevant
 
                 wordsAppearedOnLevel += word.getNumFailed() + word.getNumFaulted() + word.getNumMastered();
                 numMasteredOnLevel += word.getNumMastered();
+
             }
         }
 
-
-        if (wordsAppearedOnLevel == 0){
+        if (wordsAppearedOnLevel == 0){ // if no words have appeared in current level set accuracy to default of zero
             return 100.0;
         }
 

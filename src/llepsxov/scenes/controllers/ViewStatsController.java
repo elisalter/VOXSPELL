@@ -13,7 +13,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import llepsxov.application.DisplayingStats;
 import llepsxov.application.Voxspell;
 import llepsxov.application.Word;
 
@@ -40,7 +39,6 @@ public class ViewStatsController implements Initializable {
 
     ArrayList<Button> levelButtons = new ArrayList<Button>();
 
-    DisplayingStats _statistics = new DisplayingStats();
 
 
 

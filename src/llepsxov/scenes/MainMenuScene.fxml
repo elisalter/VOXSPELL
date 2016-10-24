@@ -58,7 +58,7 @@
             </Pane>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#newSpellingQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B8860B;" VBox.vgrow="ALWAYS">
+                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#newSpellingQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #484d4c;" VBox.vgrow="ALWAYS">
                      <children>
                         <Text fx:id="button" fill="WHITE" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW SPELLING QUIZ" textAlignment="CENTER" wrappingWidth="233.82177734375">
                            <font>
@@ -67,7 +67,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#reviewQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #933D41;" VBox.vgrow="ALWAYS">
+                  <Pane layoutX="10.0" layoutY="10.0" onMouseClicked="#reviewQuizClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1bb5ee;" VBox.vgrow="ALWAYS">
                      <children>
                         <Text fill="WHITE" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REVIEW QUIZ" textAlignment="CENTER" wrappingWidth="233.82177734375">
                            <font>
@@ -76,7 +76,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="209.0" onMouseClicked="#viewStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #317873;" VBox.vgrow="ALWAYS">
+                  <Pane layoutX="10.0" layoutY="209.0" onMouseClicked="#viewStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" VBox.vgrow="ALWAYS">
                      <children>
                         <Text fill="WHITE" layoutX="31.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIEW STATISTICS" textAlignment="CENTER" wrappingWidth="233.82177734375">
                            <font>
@@ -85,7 +85,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="276.0" onMouseClicked="#clearStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #B768A2;" VBox.vgrow="ALWAYS">
+                  <Pane layoutX="10.0" layoutY="276.0" onMouseClicked="#clearStatisticsClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1e899e;" VBox.vgrow="ALWAYS">
                      <children>
                         <Text fill="WHITE" layoutX="31.0" layoutY="57.0" onMouseClicked="#clearStatisticsClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="CLEAR STATISTICS" textAlignment="CENTER" wrappingWidth="233.82177734375">
                            <font>

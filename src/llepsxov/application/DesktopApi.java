@@ -9,6 +9,10 @@ import java.util.List;
 
 /**
  * DesktopApi created by mightypork (http://stackoverflow.com/users/2180189/mightypork)
+ * used in VoxSpell to manage file usage with the linux operating system
+ *
+ * To use this class, run the following command in your Bash terminal
+ * $ apt-get install libgnome2-0
  */
 public class DesktopApi {
 
