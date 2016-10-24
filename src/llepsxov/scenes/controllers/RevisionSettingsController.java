@@ -83,6 +83,7 @@ public class RevisionSettingsController implements Initializable {
 
         Level.setLevel(1);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
@@ -90,6 +91,7 @@ public class RevisionSettingsController implements Initializable {
 
         Level.setLevel(2);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
@@ -97,6 +99,7 @@ public class RevisionSettingsController implements Initializable {
 
         Level.setLevel(3);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
@@ -104,42 +107,49 @@ public class RevisionSettingsController implements Initializable {
 
         Level.setLevel(4);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level5Pressed() {
         Level.setLevel(5);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level6Pressed() {
         Level.setLevel(6);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level7Pressed() {
         Level.setLevel(7);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level8Pressed() {
         Level.setLevel(8);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level9Pressed() {
         Level.setLevel(9);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
     public void level10Pressed() {
         Level.setLevel(10);
         pleaseSelectALevel.setVisible(false);
+        continueButton.setDisable(false);
     }
 
     @FXML
@@ -176,13 +186,15 @@ public class RevisionSettingsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addButtons();
 
+        continueButton.setDisable(true);
+
         noLevelsToReview.setVisible(true);
         pleaseSelectALevel.setVisible(false);
         selectVoice.setValue(Festival.voice());
         selectVoice.setItems(voiceList);
 
 
-        continueButton.setDisable(true);
+
 
 
         for (int i = 0; i < 10; i++) {
@@ -193,7 +205,7 @@ public class RevisionSettingsController implements Initializable {
             } else {
                 noLevelsToReview.setVisible(false);
                 pleaseSelectALevel.setVisible(true);
-                continueButton.setDisable(false);
+                //continueButton.setDisable(false);
             }
         }
 
