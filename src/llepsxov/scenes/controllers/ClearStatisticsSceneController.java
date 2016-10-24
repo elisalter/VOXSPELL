@@ -87,7 +87,7 @@ public class ClearStatisticsSceneController implements Initializable{
 
 
     /**
-     * does not clear any statistics, offerst the option to return to the main menu
+     * does not clear any statistics, offers the option to return to the main menu
      */
     public void noPressed(){
         warningMessage.setVisible(false);

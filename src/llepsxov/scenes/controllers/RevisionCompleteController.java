@@ -8,10 +8,13 @@ import javafx.stage.Stage;
 import llepsxov.application.Voxspell;
 
 /**
- * Created by zihao123yang on 23/09/16.
+ * JavaFX controller for the RevisionComplete.fxml scene
  */
 public class RevisionCompleteController {
 
+    /**
+     * method for the return to main menu button, switches scene to the main menu
+     */
     @FXML
     public void returnMainMenu() {
         try {
@@ -20,10 +23,13 @@ public class RevisionCompleteController {
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
         } catch (Exception e) {
-
+            //do nothing
         }
     }
 
+    /**
+     * method for the retry button, retrys the current revision quizz
+     */
     public void retry() {
         try {
             Stage stage = Voxspell.getPrimaryStage();
@@ -31,7 +37,7 @@ public class RevisionCompleteController {
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
         } catch (Exception e) {
-
+            //do nothing
         }
     }
 }

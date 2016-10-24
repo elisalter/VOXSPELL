@@ -1,3 +1,3 @@
-#!bin/bash
+#!/bin/bash 
 
-/usr/lib/jvm/jdk8/bin/java -cp ./src llepsxov.application.Voxspell
+/usr/lib/jvm/java-8-oracle/bin/java -jar Voxspell.jar
